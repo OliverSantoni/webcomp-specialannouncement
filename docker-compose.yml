@@ -7,8 +7,7 @@ services:
     volumes:
       - ./:/code
     working_dir: /code
-    command: sh -c "test -d node_modules || yarn; yarn start"
-    command: sh -c "test -d node_modules || npm install; npm run start"
+    command: sh -c "test -d node_modules || npm install; npm run start:dev"
     ports:
-      - "8999:8080"
+      - "8999:9000"
     tty: true

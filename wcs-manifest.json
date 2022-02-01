@@ -1,30 +1,30 @@
 {
-  "title": "TODO: Webcomponent Boilerplate",
-  "description": "TODO: A webcomponent boilerplate that can be used to build your own boilerplate.",
-  "descriptionAbstract": "TODO: A webcomponent boilerplate",
+  "title": "Covid Announcements",
+  "description": "Latest Covid Announcements for entry to Italy, South Tyrol.",
+  "descriptionAbstract": "Latest Covid Announcements for entry to Italy, South Tyrol",
   "license": "AGPL-3.0-or-later",
   "copyrightHolders": [
     {
-      "name": "NOI",
-      "email": "info@noi.bz.it",
-      "organization": "NOI S.p.A",
-      "organizationUrl": "https://noi.bz.it"
+      "name": "IDM Suedtirol - Alto Adige",
+      "email": "info@idm-suedtirol.com",
+      "organization": "IDM Suedtirol - Alto Adige",
+      "organizationUrl": "https://www.idm-suedtirol.com/"
     }
   ],
   "authors": [
     {
-      "name": "your-name-or-company",
-      "email": "...",
-      "organization": "...",
-      "organizationUrl": "..."
+      "name": "Marketing Factory",
+      "email": "info@marketingfactory.it",
+      "organization": "Marketing Factory GmbH",
+      "organizationUrl": "https://www.marketingfactory.it/"
     }
   ],
   "image": null,
   "searchTags": [],
   "dist": {
-    "basePath": "dist",
+    "basePath": "dist/js",
     "files": [
-      "app.min.js"
+      "widget.js"
     ],
     "scripts": [
       {
@@ -34,7 +34,18 @@
     ]
   },
   "configuration": {
-    "tagName": "odh-this-repos-name-without-webcomp",
-    "options": []
+    "tagName": "specialannouncement",
+    "options": [
+        {
+        "key": "data-lang",
+        "type": "select",
+        "label": "Language",
+        "required": true,
+        "options": {
+          "values": ["en", "de", "it", "nl", "cs", "pl", "fr", "ru"],
+          "default": "en"
+        }
+      },
+    ]
   }
 }

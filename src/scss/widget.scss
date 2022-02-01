@@ -1,0 +1,286 @@
+@import './../../node_modules/tiny-slider/dist/tiny-slider.css';
+
+@font-face {
+    font-family: 'Suedtirol';
+    src: url('../fonts/SuedtirolNext-Regular.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+.odh-covid-widget {
+    display: block;
+
+    * {
+        font-family: 'Suedtirol', sans-serif;
+    }
+}
+
+.odh-covid-widget .odh-covid-widget-container {
+    margin: 0 auto;
+    position: relative;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%
+}
+
+
+.odh-covid-widget .odh-covid-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    box-sizing: content-box;
+    padding-bottom: 10px;
+    display: table;
+    table-layout: fixed;
+}
+
+.odh-covid-widget .odh-covid-slide-category {
+    cursor: default;
+}
+
+.odh-covid-widget .odh-covid-slide-category svg {
+    height: 70px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 80px;
+}
+
+.odh-covid-widget .odh-covid-slide-category .odh-covid-slide-inner-text {
+    bottom: 80px !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+}
+
+.odh-covid-widget .tns-item {
+    width: 25% !important;
+    text-decoration: none;
+    display: table-cell !important;
+
+    @media only screen and (max-width:1099px) {
+        width: 50%;
+    }
+
+    @media only screen and (max-width:599px) {
+        width: 100%;
+    }
+}
+
+.odh-covid-widget a.tns-item {
+    cursor: pointer;
+}
+
+.odh-covid-widget .odh-covid-slide {
+    height: 100%;
+    text-align: center;
+
+    .odh-covid-slide-inner {
+        height: 100%;
+    }
+}
+
+.odh-covid-widget .odh-covid-slide-invisible-blank {
+    visibility: hidden
+}
+
+.odh-covid-widget .odh-covid-widget-container-autoheight,
+.odh-covid-widget .odh-covid-widget-container-autoheight .odh-covid-slide {
+    height: auto
+}
+
+
+.odh-covid-widget .odh-covid-button-next,
+.odh-covid-widget .odh-covid-button-prev {
+    cursor: default;
+    opacity: 0.2;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    top: 50%;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    margin-top: -22px;
+    z-index: 10;
+    text-align: center;
+    transition: all .1s;
+
+    @media only screen and (max-width:599px) {
+        display: none;
+    }
+}
+
+.odh-covid-widget .odh-covid-button-next.active,
+.odh-covid-widget .odh-covid-button-prev.active {
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.odh-covid-widget .odh-covid-button-next svg,
+.odh-covid-widget .odh-covid-button-prev svg {
+    vertical-align: sub
+}
+
+.odh-covid-widget .odh-covid-button-next.odh-covid-button-disabled,
+.odh-covid-widget .odh-covid-button-prev.odh-covid-button-disabled {
+    opacity: .35;
+    cursor: auto;
+    pointer-events: none
+}
+
+.odh-covid-widget .odh-covid-button-prev,
+.odh-covid-widget .odh-covid-widget-container-rtl .odh-covid-button-next {
+    left: -75px;
+    right: auto;
+
+    @media only screen and (max-width:1099px) {
+        left: -45px
+    }
+}
+
+.odh-covid-widget .odh-covid-button-next,
+.odh-covid-widget .odh-covid-widget-container-rtl .odh-covid-button-prev {
+    right: -75px;
+    left: auto;
+
+    @media only screen and (max-width:1099px) {
+        right: -45px
+    }
+}
+
+.odh-covid-widget .odh-covid-button-lock {
+    display: none
+}
+
+.odh-covid-widget .tns-nav {
+display: none;
+}
+
+.odh-covid-widget .tns-nav button {
+    width: 100%;
+    border: none;
+    background: rgba(0, 0, 0, .1);
+}
+
+.odh-covid-widget .tns-nav button.tns-nav-active {
+    background-color: #333;
+    border-radius: 10px;
+}
+
+
+
+.odh-covid-widget {
+    width: 100%;
+    padding: 30px 0
+}
+
+.odh-covid-widget .odh-covid-powered-by {
+    text-align: right;
+    margin-top: 20px;
+    color: #777;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.odh-covid-widget .odh-covid-powered-by svg {
+    margin-left: 6px;
+    vertical-align: middle;
+    height: 50px;
+}
+
+.odh-covid-widget .odh-covid-widget-outer-container {
+    position: relative
+}
+
+.odh-covid-widget .odh-covid-slide {
+    position: relative;
+    padding: 0 5px;
+
+    @media only screen and (max-width:599px) {
+        padding: 0;
+    }
+}
+
+.odh-covid-widget .odh-covid-slide-container {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+
+
+
+.odh-covid-widget .tns-lazy-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+    opacity: 1;
+}
+
+.odh-covid-widget .odh-covid-slide:hover .odh-covid-slide-inner-top {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.odh-covid-widget .odh-covid-slide:hover .tns-lazy-img {
+    transform: scale(1.1);
+    transition: transform 0.5s ease-in-out;
+}
+
+@media only screen and (max-width:599px) {
+    .odh-covid-widget .odh-covid-powered-by {
+        margin-top: 15px
+    }
+
+    .odh-covid-widget .odh-covid-slide .odh-covid-slide-inner {}
+}
+
+.odh-covid-widget .odh-covid-slide .odh-covid-slide-inner-top {
+    height: 200px;
+    overflow: hidden;
+}
+
+.odh-covid-widget .odh-covid-slide .odh-covid-slide-inner-bottom {
+    padding: 24px;
+    background: #fff;
+    line-height: 24px;
+    text-align: left;
+
+
+}
+
+.odh-covid-widget .odh-covid-slide .odh-covid-slide-inner-bottom .odh-covid-slide-inner-text {
+    color: #262626;
+    font-size: 24px;
+    text-decoration: none !important;
+
+    @media only screen and (max-width:599px) {
+        font-size: 20px;
+        line-height: 20px;
+    }
+
+}
+
+.odh-covid-slide-inner-date span {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}

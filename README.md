@@ -8,7 +8,7 @@ Replace all `ToDo` notes in this file and adjust also the following files:
     - Adjust the configuration part with all possible configuration options
       (https://webcomponents.opendatahub.bz.it/getting-started) and test them with the [Validator](https://webcomponents.opendatahub.bz.it/validator/)
 
-# ToDo: Project Name
+# Webcomponent Covid Announcements
 
 [![REUSE status](https://api.reuse.software/badge/github.com/noi-techpark/webcomp-boilerplate)](https://api.reuse.software/info/github.com/noi-techpark/webcomp-boilerplate)
 
@@ -186,3 +186,17 @@ The project uses this boilerplate: [https://github.com/noi-techpark/webcomp-boil
 ### License
 
 The code in this project is licensed under the GNU AFFERO GENERAL PUBLIC LICENSE Version 3 license. See the [LICENSE.md](LICENSE.md) file for more information.
+
+# IDM Covid Widget #
+
+### Code Snippet ###
+
+<odh-covid-widget data-color="#333" data-lang="de" data-ignore="['85B7E735-CAD8-CFFD-CFE8-D5019469B322', '47915EAE-8631-4CBF-42D3-070677AAA366']">
+</odh-covid-widget>
+<script src="./dist/js/widget.js"></script>
+
+### Attributes ###
+
+* data-color: Color of the Sliderarrows
+* data-lang: Widget Language
+* data-ignore: hide Articles with id
