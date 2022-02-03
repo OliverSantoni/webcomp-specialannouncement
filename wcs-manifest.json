@@ -25,13 +25,7 @@
     "basePath": "dist/js",
     "files": [
       "widget.js"
-    ],
-    "scripts": [
-      {
-        "file": "odh-this-repos-name-without-webcomp.min.js",
-        "parameter": ""
-      }
-    ]
+    ]    
   },
   "configuration": {
     "tagName": "specialannouncement",
@@ -46,6 +40,24 @@
           "default": "en"
         }
       },
+      {
+        "key": "data-color",
+        "type": "text",
+        "label": "Color of the Sliderarrows",
+        "required": false,
+        "options": {          
+          "default": "#333"
+        }
+      },
+      {
+        "key": "data-ignore",
+        "type": "text",
+        "label": "hide Articles with id",
+        "required": true,
+        "options": {          
+          "default": "['85B7E735-CAD8-CFFD-CFE8-D5019469B322', '47915EAE-8631-4CBF-42D3-070677AAA366']"
+        }
+      }
     ]
   }
 }

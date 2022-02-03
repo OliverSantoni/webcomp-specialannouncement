@@ -34,23 +34,25 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin({
-            filename: 'css/[name].css',
-            chunkFilename: 'css/[id].css',
-        })
+        // new MiniCssExtractPlugin({
+        //     filename: 'css/[name].css',
+        //     chunkFilename: 'css/[id].css',
+        // })
     ],
     module: {
         rules: [{
-                test: /\.(sa|sc|c)ss$/,
-                use: [{
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: isDevelopment,
-                        },
-                    },
-                    'css-loader',
-                    'sass-loader',
-                ],
+                // test: /\.(sa|sc|c)ss$/,
+                // use: [{
+                //         loader: MiniCssExtractPlugin.loader,
+                //         options: {
+                //             hmr: isDevelopment,
+                //         },
+                //     },
+                //     'css-loader',
+                //     'sass-loader',
+                // ],
+                test: /\.(s*)css$/,
+                use: [{ loader: 'css-loader' }, { loader: 'sass-loader' }]
             },
             {
                 test: /\.(png|jpe?g|gif|svg)$/i,
@@ -63,18 +65,17 @@ module.exports = {
                     },
                 }, ],
             },
-
-            {
-                test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                        outputPath: 'fonts/',
-                        publicPath: 'dist/fonts/'
-                    }
-                }]
-            },
+            // {
+            //     test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+            //     use: [{
+            //         loader: 'file-loader',
+            //         options: {
+            //             name: '[name].[ext]',
+            //             outputPath: 'fonts/',
+            //             publicPath: 'dist/fonts/'
+            //         }
+            //     }]
+            // },
         ],
     },
     devServer: {

@@ -12,7 +12,7 @@ Replace all `ToDo` notes in this file and adjust also the following files:
 
 [![REUSE status](https://api.reuse.software/badge/github.com/noi-techpark/webcomp-boilerplate)](https://api.reuse.software/info/github.com/noi-techpark/webcomp-boilerplate)
 
-ToDo: Description of the project. What does this web component provide? Which data of the Open Data Hub will be shown? Why is it sooo coool ;-)
+This Webcomponent shows all data from Opendatahub Article Endpoint of type SpecialAnnouncement. Currently there are shown the latest Covid Announcements for entry to Italy, South Tyrol. General Covid rules in the skiareas etc..
 
 ## Table of contents
 
@@ -25,26 +25,33 @@ ToDo: Description of the project. What does this web component provide? Which da
 
 ## Usage
 
-ToDo: Include the webcompscript file `dist/webcomp-boilerplate.min.js` in your HTML and define the web component like this:
+ToDo: Include the webcompscript file `dist/js/widget.js` in your HTML and define the web component like this:
 
 ```html
-<webcomp-boilerplate xxx="test" yyy="2"></webcomp-boilerplate>
+ <odh-covid-widget data-color="#333" data-lang="de" data-ignore="['85B7E735-CAD8-CFFD-CFE8-D5019469B322', '47915EAE-8631-4CBF-42D3-070677AAA366']"></odh-covid-widget>
 ```
 
 ### Attributes
 
-#### xxxx
+#### data-color
 
-The description of the parameter xxx.
+Color of the Sliderarrows.
 
 Type: string
-Options: "test", "123"
 
-#### yyy
 
-The description of the parameter yyy.
+#### data-lang
 
-Type: int
+Widget Language.
+
+Type: string
+Options: "de", "it", "en"
+
+#### data-ignore
+
+hide Articles with id.
+
+Type: string (Array at example "['85B7E735-CAD8-CFFD-CFE8-D5019469B322', '47915EAE-8631-4CBF-42D3-070677AAA366']")
 
 ## Getting started
 
@@ -65,13 +72,13 @@ For a ready to use Docker environment with all prerequisites already installed a
 Get a copy of the repository:
 
 ```bash
-ToDo: git clone https://github.com/noi-techpark/project-name.git
+ToDo: git clone https://github.com/noi-techpark/webcomp-specialannouncement.git
 ```
 
 Change directory:
 
 ```bash
-ToDo: cd project-name/
+ToDo: cd webcomp-specialannouncement/
 ```
 
 ### Dependencies
@@ -87,10 +94,10 @@ npm install
 Build and start the project:
 
 ```bash
-npm run start
+npm run start:dev
 ```
 
-The application will be served and can be accessed at [http://localhost:8080](http://localhost:8080).
+The application will be served and can be accessed at [http://localhost:9000](http://localhost:9000).
 
 ## Tests and linting
 
@@ -100,6 +107,8 @@ The tests and the linting can be executed with the following commands:
 npm run test
 npm run lint
 ```
+
+Currently there are no tests available.
 
 ## Deployment
 
@@ -186,17 +195,3 @@ The project uses this boilerplate: [https://github.com/noi-techpark/webcomp-boil
 ### License
 
 The code in this project is licensed under the GNU AFFERO GENERAL PUBLIC LICENSE Version 3 license. See the [LICENSE.md](LICENSE.md) file for more information.
-
-# IDM Covid Widget #
-
-### Code Snippet ###
-
-<odh-covid-widget data-color="#333" data-lang="de" data-ignore="['85B7E735-CAD8-CFFD-CFE8-D5019469B322', '47915EAE-8631-4CBF-42D3-070677AAA366']">
-</odh-covid-widget>
-<script src="./dist/js/widget.js"></script>
-
-### Attributes ###
-
-* data-color: Color of the Sliderarrows
-* data-lang: Widget Language
-* data-ignore: hide Articles with id

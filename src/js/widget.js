@@ -2,7 +2,8 @@ import {
     tns
 } from 'tiny-slider';
 
-import './../scss/widget.scss';
+//import './../scss/widget.scss';
+import style from './../scss/widget.scss';
 
 //------------------------VARS----------------------//
 var hiddenEntities = "";
@@ -13,9 +14,9 @@ var clientLanguage = "";
 var clientIgnore = "";
 var cards = 0;
 
-const cssPath = "./dist/css/widget.css";
-document.querySelector('head').innerHTML += '<link rel="stylesheet" href="' + cssPath + '" type="text/css"/>';
-
+// const cssPath = "./dist/css/widget.css";
+// document.querySelector('head').innerHTML += '<link rel="stylesheet" href="' + cssPath + '" type="text/css"/>';
+document.querySelector('head').innerHTML += '<style>' + style + '</style>';
 
 // weekprogram
 if (document.querySelectorAll('odh-covid-widget').length) {
@@ -32,7 +33,6 @@ if (document.querySelectorAll('odh-covid-widget').length) {
         console.log(clientLanguage)
         getWidgetData();
     }
-
 }
 
 

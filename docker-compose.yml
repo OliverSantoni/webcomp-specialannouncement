@@ -7,7 +7,10 @@ services:
     volumes:
       - ./:/code
     working_dir: /code
-    command: sh -c "test -d node_modules || npm install; npm run start:dev"
+    command: sh -c "test -d node_modules || npm install; npm run build"
+    #command: sh -c "npm install;"
+    #command: sh -c "npm run build;"
+    #command: sh -c "npm run start:dev"
     ports:
-      - "8999:9000"
+      - "9000:9000"
     tty: true
