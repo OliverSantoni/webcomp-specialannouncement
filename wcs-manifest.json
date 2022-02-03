@@ -19,7 +19,7 @@
       "organizationUrl": "https://www.marketingfactory.it/"
     }
   ],
-  "image": null,
+  "image": "wspecialannouncement-logo.png",
   "searchTags": [],
   "dist": {
     "basePath": "dist/js",
