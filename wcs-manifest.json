@@ -28,7 +28,7 @@
     ]    
   },
   "configuration": {
-    "tagName": "specialannouncement",
+    "tagName": "odh-covid-widget",
     "options": [
         {
         "key": "data-lang",
