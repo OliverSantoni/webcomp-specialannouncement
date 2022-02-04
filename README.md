@@ -53,6 +53,33 @@ hide Articles with id.
 
 Type: string (Array at example "['85B7E735-CAD8-CFFD-CFE8-D5019469B322', '47915EAE-8631-4CBF-42D3-070677AAA366']")
 
+## Customizations
+
+### Use a custom font
+
+Using the `-.odh-covid-widget ` css variable you can set a custom `font-family`.
+[link to MDN doc](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+
+```html
+<style>
+  .odh-covid-widget  {
+    --webcomp-weather-mountain-font-family: Metal Mania;
+  }
+</style>
+<odh-weather-mountain class="en_widget" language_translation="en"></odh-weather-mountain>
+```
+Using a custom non standard font
+```html
+<style>
+		@font-face {
+			font-family: 'Suedtirol';
+			src: url('./fonts/SuedtirolNext-Regular.woff2') format('woff2');
+			font-weight: 300;
+			font-display: swap;
+		}
+	</style>
+```
+
 ## Getting started
 
 These instructions will get you a copy of the project up and running
