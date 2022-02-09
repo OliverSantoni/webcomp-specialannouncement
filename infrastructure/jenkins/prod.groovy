@@ -3,8 +3,7 @@ pipeline {
 	environment {
 		DOCKER_IMAGE = "755952719952.dkr.ecr.eu-west-1.amazonaws.com/webcompbuild:latest"
 		WC_GIT_REMOTE = get_git_remote()
-		WC_GIT_BRANCH = get_git_branch()
-		// TODO: Put your environmental variables here
+		WC_GIT_BRANCH = get_git_branch()		
 	}
 	options {
 		ansiColor('xterm')
@@ -12,7 +11,6 @@ pipeline {
 	parameters {
 		string(name: 'VERSION', defaultValue: '1.0.0', description: 'Version (without a leading "v")', trim: true)
 	}
-	// TODO: Delete either all yarn or all npm scripts
 	stages {
 		stage('AWS ECR login') {
 			steps {
@@ -27,44 +25,26 @@ pipeline {
 					alwaysPull true
 					image "${DOCKER_IMAGE}"
 				}
-			}
-			// TODO: Delete either all yarn or all npm scripts
+			}			
 			stages {
 				stage('Prepare') {
 					steps {
 						sh '''
-							cp /webcompbuild/.env .env
-							echo "YOUR_ENVVAR=${YOUR_ENVVAR}" >> .env
-
+							cp /webcompbuild/.env .env							
 							rm -rf $(jq -r ".dist.basePath" wcs-manifest.json)
 						'''
 					}
 				}
 				stage("Dependencies") {
 					steps {
-						sh '''
-							yarn
+						sh '''							
 							npm ci
 						'''
 					}
-				}
-				// TODO: Remove this stage if we do not have tests or linting
-				stage('Test') {
-					steps {
-						sh '''
-							yarn lint
-							yarn test
-						'''
-						sh '''
-							npm run lint
-							npm run test
-						'''
-					}
-				}
+				}				
 				stage("Build") {
 					steps {
-						sh '''
-							yarn build
+						sh '''							
 							npm run build
 						'''
 					}
