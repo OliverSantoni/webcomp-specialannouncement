@@ -1,13 +1,3 @@
-Replace all `ToDo` notes in this file and adjust also the following files:
-- package.json:
-    - Adjust the general parts like name, description, ...
-    - Adjust the scripts `npm run start`, `npm run build`, `npm run lint` and
-      `npm run test` or change them if you use `yarn` for instance
-- wcs-manifest.json:
-    - Adjust the general parts like title, description, ...
-    - Adjust the configuration part with all possible configuration options
-      (https://webcomponents.opendatahub.bz.it/getting-started) and test them with the [Validator](https://webcomponents.opendatahub.bz.it/validator/)
-
 # Webcomponent Covid Announcements
 
 [![REUSE status](https://api.reuse.software/badge/github.com/noi-techpark/webcomp-boilerplate)](https://api.reuse.software/info/github.com/noi-techpark/webcomp-boilerplate)
