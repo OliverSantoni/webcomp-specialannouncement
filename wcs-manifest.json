@@ -33,7 +33,7 @@
         {
         "key": "data-lang",
         "type": "select",
-        "label": "Language",
+        "label": "Language (two letter format)",
         "required": true,
         "options": {
           "values": ["en", "de", "it", "nl", "cs", "pl", "fr", "ru"],
@@ -43,7 +43,7 @@
       {
         "key": "data-color",
         "type": "text",
-        "label": "Color of the Sliderarrows",
+        "label": "Color of the Sliderarrows (Hex Code)",
         "required": false,
         "options": {          
           "default": "#333"
@@ -52,7 +52,7 @@
       {
         "key": "data-ignore",
         "type": "text",
-        "label": "hide Articles with id",
+        "label": "hide Articles with id (Array with strings)",
         "required": true,
         "options": {          
           "default": "['85B7E735-CAD8-CFFD-CFE8-D5019469B322', '47915EAE-8631-4CBF-42D3-070677AAA366']"
