@@ -1,7 +1,7 @@
 {
   "title": "Covid Announcements",
   "description": "Latest Covid Announcements for entry to Italy, South Tyrol.",
-  "descriptionAbstract": "Latest Covid Announcements for entry to Italy, South Tyrol",
+  "descriptionAbstract": "Latest Covid Announcements for entry to Italy, South Tyrol",  
   "license": "AGPL-3.0-or-later",
   "copyrightHolders": [
     {
@@ -20,7 +20,7 @@
     }
   ],
   "image": "wspecialannouncement-logo.png",
-  "searchTags": [],
+  "searchTags": [ "tourism" ],
   "dist": {
     "basePath": "dist/js",
     "files": [
