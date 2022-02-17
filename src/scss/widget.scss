@@ -20,11 +20,10 @@
     position: relative;
     list-style: none;
     padding: 0;
-    z-index: 1;
+    z-index: 1;    
+    height: 100%;
     width: 90%;
-    height: 100%
 }
-
 
 .odh-covid-widget .odh-covid-wrapper {
     position: relative;
@@ -90,7 +89,6 @@
 .odh-covid-widget .odh-covid-widget-container-autoheight .odh-covid-slide {
     height: auto
 }
-
 
 .odh-covid-widget .odh-covid-button-next,
 .odh-covid-widget .odh-covid-button-prev {
@@ -170,8 +168,6 @@ display: none;
     border-radius: 10px;
 }
 
-
-
 .odh-covid-widget {
     width: 100%;
     padding: 30px 0
@@ -221,10 +217,6 @@ display: none;
     height: 100%;
     overflow: hidden;
 }
-
-
-
-
 
 .odh-covid-widget .tns-lazy-img {
     width: 100%;
