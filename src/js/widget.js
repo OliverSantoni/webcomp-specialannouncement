@@ -26,7 +26,7 @@ if (document.querySelectorAll('odh-covid-widget').length) {
         container.classList.add('odh-covid-widget');
         clientColor = container.getAttribute('data-color');
         clientLanguage = container.getAttribute('data-lang');
-        clientIgnore = container.getAttribute('data-ignore');
+        //clientIgnore = container.getAttribute('data-ignore');
         document.write('<style>.odh-covid-widget .tns-nav button.tns-nav-active { background-color:' + clientColor + ' } </style>');
         var htmlstring = loadingPlaceholder();
         container.innerHTML = htmlstring;
