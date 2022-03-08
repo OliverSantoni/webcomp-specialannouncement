@@ -3,6 +3,7 @@
   "description": "Latest Covid Announcements for entry to Italy, South Tyrol.",
   "descriptionAbstract": "Latest Covid Announcements for entry to Italy, South Tyrol",  
   "license": "AGPL-3.0-or-later",
+  "repositoryUrl":"https://github.com/noi-techpark/webcomp-specialannouncement",
   "copyrightHolders": [
     {
       "name": "IDM Suedtirol - Alto Adige",
@@ -26,9 +27,9 @@
     "files": [
       "widget.js"
     ]    
-  },
+  },  
   "configuration": {
-    "tagName": "odh-covid-widget",
+    "tagName": "odh-covid-widget",    
     "options": [
         {
         "key": "data-lang",
