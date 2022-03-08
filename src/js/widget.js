@@ -44,7 +44,7 @@ function getWidgetData() {
 
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open('GET', 'https://tourism.opendatahub.bz.it/v1/Article?pagenumber=1&articletype=specialannouncement&origin=webcomp-specialannouncement', true);
+    xmlhttp.open('GET', 'https://tourism.opendatahub.bz.it/v1/Article?pagenumber=1&articletype=specialannouncement&origin=webcomp-specialannouncement&odhactive=true', true);
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4) {
             if (xmlhttp.status == 200) {

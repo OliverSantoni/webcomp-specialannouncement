@@ -37,12 +37,6 @@ Widget Language.
 Type: string
 Options: "de", "it", "en"
 
-#### data-ignore
-
-hide Articles with id.
-
-Type: string (Array at example "['85B7E735-CAD8-CFFD-CFE8-D5019469B322', '47915EAE-8631-4CBF-42D3-070677AAA366']")
-
 ## Customizations
 
 ### Use a custom font
