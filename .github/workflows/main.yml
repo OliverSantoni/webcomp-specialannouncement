@@ -57,5 +57,5 @@ jobs:
       - uses: noi-techpark/github-actions/webcomp-push@v2
         with:
           keycloak-secret: ${{secrets.WCSTORE_CLI_KEYCLOAK_SECRET_PROD}}
-          version-tag: ${{GITHUB_REF_NAME}}
+          version-tag: ${{github.ref}}
           production: "true"
