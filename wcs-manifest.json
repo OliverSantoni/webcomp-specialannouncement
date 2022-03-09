@@ -20,7 +20,7 @@
       "organizationUrl": "https://www.marketingfactory.it/"
     }
   ],
-  "image": "wspecialannouncement-logo.png",
+  "image": "wcs-logo.png",
   "searchTags": [ "tourism" ],
   "dist": {
     "basePath": "dist/js",
