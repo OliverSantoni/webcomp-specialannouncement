@@ -109,8 +109,15 @@ function initSlider() {
     idmslider.events.on('indexChanged', function () {
         var currentSlide = idmslider.getInfo().index;
         var totalSlides = idmslider.getInfo().pages;
-        console.log(currentSlide)
-        console.log(totalSlides)
+
+        var displayeditems = idmslider.getInfo().items;
+
+
+        console.log("index:" + currentSlide)
+        console.log("page:" + totalSlides)
+
+        console.log("items:" + displayeditems)
+
         if (currentSlide == totalSlides) {
             container.querySelector('.odh-covid-button-next').classList.remove('active')
         } else {
