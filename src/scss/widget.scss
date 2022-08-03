@@ -110,8 +110,8 @@
     }
 }
 
-.odh-covid-widget .odh-covid-button-next.active,
-.odh-covid-widget .odh-covid-button-prev.active {
+.odh-covid-widget .odh-covid-button-next[aria-disabled="false"],
+.odh-covid-widget .odh-covid-button-prev[aria-disabled="false"] {
     cursor: pointer;
     opacity: 1;
     transition: opacity 0.3s ease-in-out;

@@ -11,8 +11,12 @@ var hiddenEntities = "";
 var container = "";
 var clientColor = "";
 var clientLanguage = "";
-var clientIgnore = "";
+var clientIgnore = [];
+var clientFilter = [];
 var cards = 0;
+var lazyLoadedEntities = false;
+var currentPage = 1;
+var currentSlide = 0;
 
 // const cssPath = "./dist/css/widget.css";
 // document.querySelector('head').innerHTML += '<link rel="stylesheet" href="' + cssPath + '" type="text/css"/>';
@@ -26,11 +30,17 @@ if (document.querySelectorAll('odh-covid-widget').length) {
         container.classList.add('odh-covid-widget');
         clientColor = container.getAttribute('data-color');
         clientLanguage = container.getAttribute('data-lang');
-        //clientIgnore = container.getAttribute('data-ignore');
+        if (container.getAttribute('data-ignore') != undefined) {
+            clientIgnore = container.getAttribute('data-ignore');
+        }
+        if (container.getAttribute('data-filter') != undefined) {
+            clientFilter = container.getAttribute('data-filter');
+        }
+
         document.write('<style>.odh-covid-widget .tns-nav button.tns-nav-active { background-color:' + clientColor + ' } </style>');
         var htmlstring = loadingPlaceholder();
         container.innerHTML = htmlstring;
-        console.log(clientLanguage)
+        //console.log(clientLanguage)
         getWidgetData();
     }
 }
@@ -39,17 +49,31 @@ if (document.querySelectorAll('odh-covid-widget').length) {
 //------------------------FUNCTIONS----------------------//
 
 
-function getWidgetData() {
-
+function getWidgetData(type, slider) {
 
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open('GET', 'https://tourism.opendatahub.bz.it/v1/Article?pagenumber=1&articletype=specialannouncement&origin=webcomp-specialannouncement&odhactive=true&odhtagfilter=covid-infos&langfilter=' + clientLanguage, true);
+    xmlhttp.open('GET', 'https://tourism.opendatahub.bz.it/v1/Article?articletype=specialannouncement&origin=webcomp-specialannouncement&odhactive=true&odhtagfilter=covid-infos&langfilter=' + clientLanguage + '&pagenumber=' + currentPage, true);
+    xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+    xmlhttp.setRequestHeader("Access-Control-Allow-Credentials", "true");
+    xmlhttp.setRequestHeader("Access-Control-Allow-Methods", "GET");
+    xmlhttp.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4) {
             if (xmlhttp.status == 200) {
                 var obj = JSON.parse(xmlhttp.responseText);
-                createSlider(obj)
+                if (type != 'update') {
+                    currentPage++;
+                    createSlider(obj)
+                } else {
+                    refreshSlider(obj, slider)
+
+                    if (obj.NextPage != null) {
+                        currentPage++;
+                    } else {
+                        lazyLoadedEntities = true;
+                    }
+                }
             }
         }
     };
@@ -65,13 +89,23 @@ function createSlider(data) {
     initSlider();
 }
 
+function refreshSlider(data, slider) {
+
+    var entities = null;
+    // create Skeleton
+    entities = data.Items;
+    slider.destroy()
+    container.querySelector('.odh-covid-wrapper').innerHTML = container.querySelector('.odh-covid-wrapper').innerHTML += updateHtml(entities);
+    initSlider();
+}
+
 //initSlider
 function initSlider() {
 
-    if (cards > 3){
+    if (cards > 3) {
         cards = 4;
     }
-    
+
     var idmslider = tns({
         container: container.querySelector(".odh-covid-wrapper"),
         slideBy: 'page',
@@ -80,6 +114,7 @@ function initSlider() {
         nextButton: container.querySelector('.odh-covid-button-next'),
         prevButton: container.querySelector('.odh-covid-button-prev'),
         loop: false,
+        startIndex: currentSlide,
         nav: true,
         center: false,
         onInit: container.classList.add('odh-covid-initialized'),
@@ -90,12 +125,12 @@ function initSlider() {
                 gutter: 10,
                 items: 1,
                 center: true
-              },
+            },
             600: {
-              items: 2,
-              edgePadding: 0,
-              gutter: 0,
-              center: false,
+                items: 2,
+                edgePadding: 0,
+                gutter: 0,
+                center: false,
             },
             1100: {
                 items: cards,
@@ -103,32 +138,21 @@ function initSlider() {
 
             },
 
-          }
+        }
     });
 
-    idmslider.events.on('indexChanged', function () {
-        var currentSlide = idmslider.getInfo().index;
-        var totalSlides = idmslider.getInfo().pages;
-
-        var displayeditems = idmslider.getInfo().items;
+    idmslider.events.on('transitionEnd', function () {
+        currentSlide = idmslider.getInfo().index;
+        if (container.querySelector('.odh-covid-button-next').getAttribute('aria-disabled') == 'true') {
 
 
-        console.log("index:" + currentSlide)
-        console.log("page:" + totalSlides)
+            if (lazyLoadedEntities == false) {
+                getWidgetData('update', idmslider);
+            }
 
-        console.log("items:" + displayeditems)
 
-        if (currentSlide == totalSlides) {
-            container.querySelector('.odh-covid-button-next').classList.remove('active')
-        } else {
-            container.querySelector('.odh-covid-button-next').classList.add('active')
         }
 
-        if (currentSlide != 0) {
-            container.querySelector('.odh-covid-button-prev').classList.add('active')
-        } else {
-            container.querySelector('.odh-covid-button-prev').classList.remove('active')
-        }
     });
 }
 
@@ -188,5 +212,46 @@ function renderIdm(entities) {
     htmlstring += '<path d="M91.29,38.885a6.168,6.168,0,0,1-2.193-.4,8.507,8.507,0,0,1-.954-4.383c0-1.552.327-2.738.327-4A9.169,9.169,0,0,0,88.229,28a9.133,9.133,0,0,1,2.911-.534,5.793,5.793,0,0,1,.388,2.418c0,1.323-.333,3.281-.333,4.148a5.783,5.783,0,0,0,.331,2.255,1.6,1.6,0,0,0,.67.1,8.419,8.419,0,0,0,2.252-.4,5.075,5.075,0,0,1,.318,1.666,4.833,4.833,0,0,1-.05.642A12.058,12.058,0,0,1,91.29,38.885Z" transform="translate(-15.266 -20.963)" fill="#758592"/></g></svg></div>';
     htmlstring += '</div>';
     // ENDMODAL
+    return htmlstring;
+}
+
+function updateHtml(entities) {
+    var htmlstring = '';
+
+
+    for (var key in entities) {
+
+        var entity = entities[key];
+        if (!clientIgnore.includes(entity.Id) && entity.AdditionalArticleInfos[clientLanguage] != null) {
+     
+            //SLIDE
+            cards++;
+            if (entity.AdditionalArticleInfos[clientLanguage] != null) {
+                htmlstring += '<a target="_blank" href="' + (entity.AdditionalArticleInfos[clientLanguage].Elements.newsUpdatesAndGuidelines) + '">';
+            }
+            htmlstring += '<div class="odh-covid-slide">';
+            htmlstring += '<div class="odh-covid-slide-container">';
+            htmlstring += '<div class="odh-covid-slide-inner">';
+            htmlstring += '<div class="odh-covid-slide-inner-top">';
+            if (entity.ImageGallery != '') {
+                htmlstring += '<img class="tns-lazy-img" src="' + entity.ImageGallery[0].ImageUrl + '">';
+            }
+            htmlstring += '</div>';
+            htmlstring += '<div class="odh-covid-slide-inner-bottom">';
+            htmlstring += '<div class="odh-covid-slide-inner-text">' + entity.Detail[clientLanguage].Title + '<div class="odh-covid-slide-inner-date">';
+            htmlstring += '</div>';
+            htmlstring += '</div>';
+            htmlstring += '</div>';
+            htmlstring += '</div>';
+            htmlstring += '</div>';
+            htmlstring += '</div>';
+            if (entity.AdditionalArticleInfos[clientLanguage] != null) {
+                htmlstring += '</a>';
+            }
+        }
+    }
+
+
+
     return htmlstring;
 }
