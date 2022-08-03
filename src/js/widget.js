@@ -177,14 +177,20 @@ function renderIdm(entities) {
         var entity = entities[key];
         
 
-        if (!clientIgnore.includes(entity.Id) && entity.AdditionalArticleInfos[clientLanguage] != null) {
+        if ((clientFilter.includes(entity.Id) || clientFilter.length == 0) && (!clientIgnore.includes(entity.Id) || clientIgnore.length == 0)) {
             //SLIDE
             cards ++;
-            htmlstring += '<a target="_blank" href="' +(entity.AdditionalArticleInfos[clientLanguage].Elements.newsUpdatesAndGuidelines) + '">';
+            if (entity.AdditionalArticleInfos[clientLanguage] != null) {
+                htmlstring += '<a target="_blank" href="' +(entity.AdditionalArticleInfos[clientLanguage].Elements.newsUpdatesAndGuidelines) + '">';
+            }
             htmlstring += '<div class="odh-covid-slide">';
             htmlstring += '<div class="odh-covid-slide-container">';
             htmlstring += '<div class="odh-covid-slide-inner">';
-            htmlstring += '<div class="odh-covid-slide-inner-top"><img class="tns-lazy-img" src="' + entity.ImageGallery[0].ImageUrl + '"></div>';
+            htmlstring += '<div class="odh-covid-slide-inner-top">';
+            if (entity.ImageGallery != '') {
+                htmlstring += '<img class="tns-lazy-img" src="' + entity.ImageGallery[0].ImageUrl + '"></div>';
+            }
+            
             htmlstring += '<div class="odh-covid-slide-inner-bottom">';
             htmlstring += '<div class="odh-covid-slide-inner-text">' + entity.Detail[clientLanguage].Title + '<div class="odh-covid-slide-inner-date">';
             htmlstring += '</div>';
@@ -193,7 +199,9 @@ function renderIdm(entities) {
             htmlstring += '</div>';
             htmlstring += '</div>';
             htmlstring += '</div>';
-            htmlstring += '</a>';
+            if (entity.AdditionalArticleInfos[clientLanguage] != null) {
+                            htmlstring += '</a>';
+            }
         }
 
     }
@@ -222,7 +230,7 @@ function updateHtml(entities) {
     for (var key in entities) {
 
         var entity = entities[key];
-        if (!clientIgnore.includes(entity.Id) && entity.AdditionalArticleInfos[clientLanguage] != null) {
+        if ((clientFilter.includes(entity.Id) || clientFilter.length == 0) && (!clientIgnore.includes(entity.Id) || clientIgnore.length == 0)) {
      
             //SLIDE
             cards++;

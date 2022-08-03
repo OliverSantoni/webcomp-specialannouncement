@@ -261,12 +261,13 @@ display: none;
 
 .odh-covid-widget .odh-covid-slide .odh-covid-slide-inner-bottom .odh-covid-slide-inner-text {
     color: #262626;
-    font-size: 24px;
+    font-size: 20px;
+    line-height: 24px;
     text-decoration: none !important;
 
     @media only screen and (max-width:599px) {
-        font-size: 20px;
-        line-height: 20px;
+        font-size: 18px;
+        line-height: 22px;
     }
 
 }
