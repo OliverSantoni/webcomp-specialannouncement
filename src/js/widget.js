@@ -152,7 +152,6 @@ function initSlider() {
 
 
         }
-
     });
 }
 
@@ -242,7 +241,7 @@ function updateHtml(entities) {
             htmlstring += '<div class="odh-covid-slide-inner">';
             htmlstring += '<div class="odh-covid-slide-inner-top">';
             if (entity.ImageGallery != '') {
-                htmlstring += '<img class="tns-lazy-img" src="' + entity.ImageGallery[0].ImageUrl + '">';
+                htmlstring += '<img class="tns-lazy-img" src="' + entity.ImageGallery[0].ImageUrl + '&width=1024' + '">';
             }
             htmlstring += '</div>';
             htmlstring += '<div class="odh-covid-slide-inner-bottom">';
