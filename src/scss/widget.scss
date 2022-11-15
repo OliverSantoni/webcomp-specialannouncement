@@ -58,6 +58,7 @@
     width: 25% !important;
     text-decoration: none;
     display: table-cell !important;
+    height: 100%;
 
     @media only screen and (max-width:1099px) {
         width: 50%;
@@ -78,6 +79,7 @@
 
     .odh-covid-slide-inner {
         height: 100%;
+        background: #fff;
     }
 }
 
@@ -242,7 +244,9 @@ display: none;
         margin-top: 15px
     }
 
-    .odh-covid-widget .odh-covid-slide .odh-covid-slide-inner {}
+    .odh-covid-widget .odh-covid-slide .odh-covid-slide-inner {
+        background: #fff;
+    }
 }
 
 .odh-covid-widget .odh-covid-slide .odh-covid-slide-inner-top {
@@ -252,7 +256,6 @@ display: none;
 
 .odh-covid-widget .odh-covid-slide .odh-covid-slide-inner-bottom {
     padding: 24px;
-    background: #fff;
     line-height: 24px;
     text-align: left;
 
