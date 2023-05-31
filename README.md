@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2021 IDM Südtirol Alto Adige <info@idm-suedtirol.com>
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Webcomponent Covid Announcements
 
 [![CI/CD](https://github.com/noi-techpark/webcomp-specialannouncement/actions/workflows/main.yml/badge.svg)](https://github.com/noi-techpark/webcomp-specialannouncement/actions/workflows/main.yml)
