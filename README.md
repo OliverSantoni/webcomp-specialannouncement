@@ -6,6 +6,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Webcomponent Covid Announcements
 
+![REUSE Compliance](https://github.com/noi-techpark/webcomp-specialannouncement/actions/workflows/reuse.yml/badge.svg)
 [![CI/CD](https://github.com/noi-techpark/webcomp-specialannouncement/actions/workflows/main.yml/badge.svg)](https://github.com/noi-techpark/webcomp-specialannouncement/actions/workflows/main.yml)
 [![REUSE status](https://api.reuse.software/badge/github.com/noi-techpark/webcomp-boilerplate)](https://api.reuse.software/info/github.com/noi-techpark/webcomp-boilerplate)
 
