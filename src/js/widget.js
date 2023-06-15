@@ -57,7 +57,7 @@ function getWidgetData(type, slider) {
 
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open('GET', 'https://tourism.opendatahub.bz.it/v1/Article?articletype=specialannouncement&origin=webcomp-specialannouncement&odhactive=true&odhtagfilter=covid-infos&langfilter=' + clientLanguage + '&pagenumber=' + currentPage, true);
+    xmlhttp.open('GET', 'https://tourism.opendatahub.com/v1/Article?articletype=specialannouncement&origin=webcomp-specialannouncement&odhactive=true&odhtagfilter=covid-infos&langfilter=' + clientLanguage + '&pagenumber=' + currentPage, true);
     xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
     xmlhttp.setRequestHeader("Access-Control-Allow-Credentials", "true");
     xmlhttp.setRequestHeader("Access-Control-Allow-Methods", "GET");
